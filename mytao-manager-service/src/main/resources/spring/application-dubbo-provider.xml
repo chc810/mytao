@@ -16,7 +16,7 @@
     <dubbo:protocol name="dubbo" port="${dubbo.service.port}" />
 
     <!-- 注册监控 -->
-    <dubbo:monitor protocol="registry"/>
+    <!--<dubbo:monitor protocol="registry"/>-->
 
     <!-- 用户服务接口 -->
     <dubbo:service interface="com.mytao.manager.facade.service.TbItemFacade" ref="tbItemService" />

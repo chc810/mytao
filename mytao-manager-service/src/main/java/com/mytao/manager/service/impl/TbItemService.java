@@ -1,5 +1,6 @@
 package com.mytao.manager.service.impl;
 
+import com.mytao.common.service.BaseService;
 import com.mytao.manager.entity.TbItem;
 import com.mytao.manager.facade.pojo.TbItemPo;
 import com.mytao.manager.facade.service.TbItemFacade;
@@ -20,13 +21,14 @@ import org.springframework.stereotype.Service;
  * @author cuihc
  */
 @Service
-public class TbItemService implements TbItemFacade{
+public class TbItemService extends BaseService implements TbItemFacade  {
 
     @Autowired
     private TbItemMapper tbItemMapper;
 
     @Override
     public TbItemPo getById(Long id) {
+        logger.info("进入TbItemService.getById()...id=" + id);
         TbItem tbItem = tbItemMapper.selectByPrimaryKey(id);
         TbItemPo tbItemPo = new TbItemPo();
         BeanUtils.copyProperties(tbItem, tbItemPo);
