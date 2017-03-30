@@ -1,13 +1,32 @@
-package com.mytao.manager.entity;
+package com.mytao.manager.facade.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbItemParam {
+/**
+ * <dl>
+ * <dt>TbItemParamPo</dt>
+ * <dd>Description:</dd>
+ * <dd>Copyright: Copyright (C) 2006</dd>
+ * <dd>Company: 青牛（北京）技术有限公司</dd>
+ * <dd>CreateDate: 2017/3/29</dd>
+ * </dl>
+ *
+ * @author cuihc
+ */
+public class TbItemParamPo implements Serializable{
     private Long id;
 
     private Long itemCatId;
-
     private String itemCatName;
+
+    public String getItemCatName() {
+        return itemCatName;
+    }
+
+    public void setItemCatName(String itemCatName) {
+        this.itemCatName = itemCatName;
+    }
 
     private Date created;
 
@@ -29,14 +48,6 @@ public class TbItemParam {
 
     public void setItemCatId(Long itemCatId) {
         this.itemCatId = itemCatId;
-    }
-
-    public String getItemCatName() {
-        return itemCatName;
-    }
-
-    public void setItemCatName(String itemCatName) {
-        this.itemCatName = itemCatName;
     }
 
     public Date getCreated() {
@@ -62,4 +73,5 @@ public class TbItemParam {
     public void setParamData(String paramData) {
         this.paramData = paramData == null ? null : paramData.trim();
     }
+
 }

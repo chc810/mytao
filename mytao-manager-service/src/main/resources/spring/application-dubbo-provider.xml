@@ -21,4 +21,6 @@
     <!-- 用户服务接口 -->
     <dubbo:service interface="com.mytao.manager.facade.service.TbItemFacade" ref="tbItemService" />
 
+    <dubbo:service interface="com.mytao.manager.facade.service.TbItemCatFacade" ref="tbItemCatService" />
+
 </beans>

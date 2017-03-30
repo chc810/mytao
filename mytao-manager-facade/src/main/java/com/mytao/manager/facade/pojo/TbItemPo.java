@@ -18,25 +18,25 @@ public class TbItemPo implements Serializable{
 
     private Long id;
 
-    private Long categoryId;
-
     private String title;
 
-    private String subTitle;
+    private String sellPoint;
 
-    private String titleDesc;
+    private Long price;
 
-    private String url;
+    private Integer num;
 
-    private String pic;
+    private String barcode;
 
-    private String pic2;
+    private String image;
+
+    private Long cid;
+
+    private Byte status;
 
     private Date created;
 
     private Date updated;
-
-    private String content;
 
     public Long getId() {
         return id;
@@ -44,14 +44,6 @@ public class TbItemPo implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
     }
 
     public String getTitle() {
@@ -62,44 +54,60 @@ public class TbItemPo implements Serializable{
         this.title = title == null ? null : title.trim();
     }
 
-    public String getSubTitle() {
-        return subTitle;
+    public String getSellPoint() {
+        return sellPoint;
     }
 
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle == null ? null : subTitle.trim();
+    public void setSellPoint(String sellPoint) {
+        this.sellPoint = sellPoint == null ? null : sellPoint.trim();
     }
 
-    public String getTitleDesc() {
-        return titleDesc;
+    public Long getPrice() {
+        return price;
     }
 
-    public void setTitleDesc(String titleDesc) {
-        this.titleDesc = titleDesc == null ? null : titleDesc.trim();
+    public void setPrice(Long price) {
+        this.price = price;
     }
 
-    public String getUrl() {
-        return url;
+    public Integer getNum() {
+        return num;
     }
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
-    public String getPic() {
-        return pic;
+    public String getBarcode() {
+        return barcode;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
+    public void setBarcode(String barcode) {
+        this.barcode = barcode == null ? null : barcode.trim();
     }
 
-    public String getPic2() {
-        return pic2;
+    public String getImage() {
+        return image;
     }
 
-    public void setPic2(String pic2) {
-        this.pic2 = pic2 == null ? null : pic2.trim();
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
+    }
+
+    public Long getCid() {
+        return cid;
+    }
+
+    public void setCid(Long cid) {
+        this.cid = cid;
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     public Date getCreated() {
@@ -116,14 +124,6 @@ public class TbItemPo implements Serializable{
 
     public void setUpdated(Date updated) {
         this.updated = updated;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 
 }

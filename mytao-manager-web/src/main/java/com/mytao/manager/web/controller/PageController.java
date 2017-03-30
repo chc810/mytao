@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author cuihc
  */
 @Controller
-public class Pagecontroller {
+public class PageController {
 
     @RequestMapping("/")
     public String showIndex() {

@@ -1,5 +1,8 @@
 package com.mytao.common.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * <dl>
  * <dt>BaseController</dt>
@@ -12,4 +15,6 @@ package com.mytao.common.controller;
  * @author cuihc
  */
 public class BaseController {
+
+    protected Logger logger = LoggerFactory.getLogger(this.getClass());
 }

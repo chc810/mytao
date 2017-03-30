@@ -17,5 +17,7 @@
 	<!-- 服务接口 -->
 	<dubbo:reference interface="com.mytao.manager.facade.service.TbItemFacade" id="tbItemService" check="false" />
 
+	<dubbo:reference interface="com.mytao.manager.facade.service.TbItemCatFacade" id="tbItemCatService" check="false" />
+
 
 </beans>  

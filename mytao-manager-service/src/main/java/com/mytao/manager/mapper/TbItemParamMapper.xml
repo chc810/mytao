@@ -10,6 +10,10 @@
   <resultMap id="ResultMapWithBLOBs" type="com.mytao.manager.entity.TbItemParam" extends="BaseResultMap" >
     <result column="param_data" property="paramData" jdbcType="LONGVARCHAR" />
   </resultMap>
+  <resultMap id="AllResultMap" type="com.mytao.manager.entity.TbItemParam" extends="ResultMapWithBLOBs">
+    <result column="item_cat_name" property="itemCatName" jdbcType="VARCHAR" />
+  </resultMap>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -248,4 +252,9 @@
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectWithCatName" resultMap="AllResultMap">
+    SELECT
+      t1.id, t1.item_cat_id, t1.created, t1.updated,param_data,t2.name as item_cat_name FROM tb_item_param t1 LEFT JOIN tb_item_cat t2 on t1.item_cat_id = t2.id
+  </select>
 </mapper>
