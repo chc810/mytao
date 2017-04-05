@@ -61,8 +61,8 @@ public class TbItemController {
 
     @RequestMapping("/save")
     @ResponseBody
-    public TaotaoResult save(TbItemPo tbItemPo, String desc) {
-        tbItemService.saveItem(tbItemPo,desc);
+    public TaotaoResult save(TbItemPo tbItemPo, String desc, String itemParams) {
+        tbItemService.saveItem(tbItemPo,desc, itemParams);
         return TaotaoResult.ok();
     }
 

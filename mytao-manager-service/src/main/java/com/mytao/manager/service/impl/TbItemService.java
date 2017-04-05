@@ -11,7 +11,9 @@ import com.mytao.manager.facade.pojo.TbItemPo;
 import com.mytao.manager.facade.service.TbItemFacade;
 import com.mytao.manager.mapper.TbItemDescMapper;
 import com.mytao.manager.mapper.TbItemMapper;
+import com.mytao.manager.mapper.TbItemParamItemMapper;
 import com.mytao.manager.mapper.TbItemParamMapper;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +42,9 @@ public class TbItemService extends BaseService implements TbItemFacade  {
 
     @Autowired
     private TbItemParamMapper tbItemParamMapper;
+
+    @Autowired
+    private TbItemParamItemMapper tbItemParamItemMapper;
 
     @Override
     public TbItemPo getById(Long id) {
@@ -98,7 +103,7 @@ public class TbItemService extends BaseService implements TbItemFacade  {
     }
 
     @Override
-    public TbItemPo saveItem(TbItemPo po, String desc) {
+    public TbItemPo saveItem(TbItemPo po, String desc, String itemParams) {
         long id = Idutil.getId();
         TbItem tbItem = new TbItem();
         BeanUtils.copyProperties(po, tbItem);
@@ -109,13 +114,23 @@ public class TbItemService extends BaseService implements TbItemFacade  {
         int tbItemRet = tbItemMapper.insert(tbItem);
         logger.info("tbItemRet=" + tbItemRet);
 
-        TbItemDesc tbItemDesc = new TbItemDesc();
-        tbItemDesc.setItemId(id);
-        tbItemDesc.setCreated(new Date());
-        tbItemDesc.setUpdated(new Date());
-        tbItemDesc.setItemDesc(desc);
-        int tbItemDescRet = tbItemDescMapper.insert(tbItemDesc);
-        logger.info("tbItemDescRet=" + tbItemDescRet);
+        if (StringUtils.isNoneBlank(desc)) {
+            TbItemDesc tbItemDesc = new TbItemDesc();
+            tbItemDesc.setItemId(id);
+            tbItemDesc.setCreated(new Date());
+            tbItemDesc.setUpdated(new Date());
+            tbItemDesc.setItemDesc(desc);
+            int tbItemDescRet = tbItemDescMapper.insert(tbItemDesc);
+            logger.info("tbItemDescRet=" + tbItemDescRet);
+        }
+        if (StringUtils.isNoneBlank(itemParams)) {
+            TbItemParamItem tbItemParamItem = new TbItemParamItem();
+            tbItemParamItem.setParamData(itemParams);
+            tbItemParamItem.setItemId(id);
+            tbItemParamItem.setUpdated(new Date());
+            tbItemParamItem.setCreated(new Date());
+            tbItemParamItemMapper.insertSelective(tbItemParamItem);
+        }
         return po;
     }
 

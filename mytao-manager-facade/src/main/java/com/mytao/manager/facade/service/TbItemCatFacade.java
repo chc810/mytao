@@ -18,4 +18,5 @@ import java.util.List;
 public interface TbItemCatFacade {
 
     List<TbItemCatPo> getItemCatListByParentId(String id);
+
 }

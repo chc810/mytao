@@ -30,7 +30,7 @@
    </tx:advice>
 
    <aop:config>
-      <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.mytao.manager.service.*.*(..))" />
+      <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.mytao.manager.service.impl.*.*(..))" />
    </aop:config>
 
 

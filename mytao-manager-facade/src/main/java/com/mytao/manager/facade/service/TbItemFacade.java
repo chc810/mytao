@@ -28,7 +28,7 @@ public interface TbItemFacade {
 
     public Map<Long,List<TbItemPo>> listItemWithTotal(TbItemPo po, int page, int rows);
 
-    public TbItemPo saveItem(TbItemPo po, String desc);
+    public TbItemPo saveItem(TbItemPo po, String desc, String itemParams);
 
     public TbItemParamPo saveItemParam(TbItemParamPo po);
 

@@ -23,4 +23,6 @@
 
     <dubbo:service interface="com.mytao.manager.facade.service.TbItemCatFacade" ref="tbItemCatService" />
 
+    <dubbo:service interface="com.mytao.manager.facade.service.TbContentFacade" ref="tbContentService" />
+
 </beans>
